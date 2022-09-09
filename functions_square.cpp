@@ -1,4 +1,4 @@
-#include "square.h"
+#include "functions_square.h"
 
 double line(double b, double c, int* nomber_of_solutions, double* first_solution, double* second_solution)
 { 

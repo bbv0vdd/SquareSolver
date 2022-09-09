@@ -1,5 +1,5 @@
-#include "square.h"
-
+#include "functions_square.h"
+    #ifdef TEST
 int main(const int argc, const char **argv)
 {
     double a = 0, b = 0, c = 0; 
@@ -7,7 +7,7 @@ int main(const int argc, const char **argv)
     double first_solution = NAN, second_solution = NAN;
     int nomber_of_solutions = 0;
     
-    #ifdef TEST
+
     double x1; double x2;
     char file_name[255];
     if (argc == 1)
@@ -25,18 +25,23 @@ int main(const int argc, const char **argv)
     }
 
     #else 
+    int main()
+    {
+        double a = 0, b = 0, c = 0; 
+        double D = 0;
+        double first_solution = NAN, second_solution = NAN;
+        int nomber_of_solutions = 0;
+        printf ("Введите коэффициенты a, b, c\n");
+        input_checking(&a, &b, &c);
+        if (compare(a, 0.0) == EQUAL)
+    
+            line (b, c, &nomber_of_solutions, &first_solution, &second_solution);
 
-    printf ("Введите коэффициенты a, b, c\n");
-    input_checking(&a, &b, &c);
-    if (compare(a, 0.0) == EQUAL)
+        else
     
-        line (b, c, &nomber_of_solutions, &first_solution, &second_solution);
-
-    else
+            square(a, b, c, D, &first_solution, &second_solution, &nomber_of_solutions);
     
-        square(a, b, c, D, &first_solution, &second_solution, &nomber_of_solutions);
-    
-    output(nomber_of_solutions, first_solution, second_solution);
+        output(nomber_of_solutions, first_solution, second_solution);
     #endif
 
     return 0;
